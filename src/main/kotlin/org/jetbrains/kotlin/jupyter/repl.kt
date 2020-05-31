@@ -429,7 +429,7 @@ class ReplForJupyterImpl(val scriptClasspath: List<File> = emptyList(),
         //val preprocessed = preprocessCode(code)
         val codeLine = SourceCodeImpl(executionCounter++, code)
         val errorsList = runBlocking { compiler.analyze(codeLine, 0.toSourceCodePosition(codeLine), compilerConfiguration) }
-        ListErrorsResult(code, errorsList.valueOrThrow())
+        ListErrorsResult(code, errorsList.valueOrThrow()[ReplAnalyzerResult.analysisDiagnostics]!!)
     }
 
     private fun <T, Args: LockQueueArgs<T>> doWithLock(args: Args, queue: LockQueue<T, Args>, default: T, action: (Args) -> T) {

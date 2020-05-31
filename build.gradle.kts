@@ -175,7 +175,7 @@ dependencies {
 
     implementation(project(":jupyter-lib"))
     implementation(kotlin("reflect"))
-    implementation(kotlin("scripting-ide-services-embeddable") as String) { isTransitive = false }
+    implementation(kotlin("scripting-ide-services") as String) { isTransitive = false }
     implementation(kotlin("scripting-common"))
     implementation(kotlin("scripting-compiler-embeddable"))
     implementation(kotlin("compiler-embeddable"))
